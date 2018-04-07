@@ -1,0 +1,15 @@
+ #
+ # fingerprint driver configuration
+ #
+ 
+ config INPUT_FINGERPRINT
+   bool INPUT_FINGERPRINT
+   default n
+   help
+     Enable fingerprint sensors
+ 
+config FINGERPRINT_ELAN_QSEE
+  bool FINGERPRINT_ELAN_QSEE
+  default n
+  help
+    Elan Fingerprint for QSEE
