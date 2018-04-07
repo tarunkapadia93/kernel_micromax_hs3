@@ -15,7 +15,7 @@
 &mdss_dsi0{
 
 	/delete-property/ qcom,platform-bklight-en-gpio;
-
+	/delete-property/ vdd-supply;
 	qcom,dsi-pref-prim-pan = <&dsi_icn9706_720_1440_vid>;
 	qcom,platform-enable-gpio = <&tlmm 68 0>;
 };
