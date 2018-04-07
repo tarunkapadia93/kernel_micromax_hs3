@@ -79,6 +79,7 @@ struct efsa120s_data  {
 	int 					irq_gpio;
 	int						isr;
 	int 					rst_gpio;
+	int 					fpid_gpio;
 	int						irq_is_disable;
 	struct miscdevice		efsa120_dev;	/* char device for ioctl */
 	struct platform_device	*pdev;
@@ -426,7 +427,7 @@ static char efsa120s_gpio_config(void *_fp)
 	}
 
 
-	/*ret =  gpio_request(fp->fpid_gpio, "efsa120-fpid");
+	ret =  gpio_request(fp->fpid_gpio, "efsa120-fpid");
 	if (ret < 0)
 	{
 		ELAN_DEBUG("%s() FPID%d request fail, err=0x%x.\n", __func__, fp->fpid_gpio, ret);
@@ -435,9 +436,11 @@ static char efsa120s_gpio_config(void *_fp)
 	else
 	{
 		ELAN_DEBUG("%s() FPID%d request success, err=0x%x.\n", __func__, fp->fpid_gpio, ret);
-	       fpid = gpio_get_value(fp->fpid_gpio);
-		ELAN_DEBUG("%s() FPID = %d...\n", fpid,  __func__);
-	}*/
+	       ret = gpio_get_value(fp->fpid_gpio);
+		ELAN_DEBUG("%s() FPID = %d...\n",  __func__, ret);
+		init_fpid(1);
+
+	}
 
 	return ret;
 }
@@ -459,10 +462,10 @@ static int elan_parse_dt(struct device *dev, struct efsa120s_data *pdata)
 		return pdata->irq_gpio;
 
 
-	/*pdata->fpid_gpio = of_get_named_gpio(np, "qcom,fpid-gpio", 0);
+	pdata->fpid_gpio = of_get_named_gpio(np, "qcom,fpid-gpio", 0);
 	ELAN_DEBUG("fpid_gpio = %d\n", pdata->fpid_gpio);
 	if (pdata->fpid_gpio < 0)
-		return pdata->irq_gpio;	*/
+		return pdata->irq_gpio;	
 
 	/* ---reset, irq gpio info--- */
 

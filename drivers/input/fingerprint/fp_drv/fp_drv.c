@@ -52,11 +52,6 @@ struct platform_device fp_device = {
 	.id        	= -1,
 };
 
-
-
-
-
-
 static char m_dev_name[64];
 static int has_exist = 0;
 
@@ -99,6 +94,17 @@ int full_fp_chip_info(const char *info)
 	return 0;
 }
 
+int init_fpid (int id)
+{
+	__FUN();
+	klog("fpid %d\n", id);
+	if (id){
+		full_fp_chip_name("elan_fp");
+	} else {
+		full_fp_chip_name("goodix_fp");
+	}
+	return 0;
+}
 static ssize_t info_show(struct device *dev, struct device_attribute *attr, char *buf)
 {
 	if(has_exist) {

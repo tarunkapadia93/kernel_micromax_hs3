@@ -28,7 +28,7 @@
 
 extern int full_fp_chip_name(const char *name);
 extern int full_fp_chip_info(const char *name);
-
+extern int init_fpid(int id);
 
 #define LOG_TAG  "[fingerprint][fp_drv]:"
 #define __FUN(f)   printk(KERN_ERR LOG_TAG "~~~~~~~~~~~~ %s ~~~~~~~~~\n", __FUNCTION__)
