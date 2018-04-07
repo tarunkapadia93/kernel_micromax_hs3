@@ -18,6 +18,7 @@
 #include "msm8937-mtp.dtsi"
 #include "msm8937-pmi8940-mtp.dtsi"
 #include "hs3/msm8937-mdss-panels-hs3.dtsi"
+#include "hs3/msm8937-pinctrl-hs3.dtsi"
 
 / {
 	model = "Qualcomm Technologies, Inc. MSM8937-PMI8940 HS3";
@@ -37,6 +38,22 @@
 
 &soc {
 	/delete-node/ hbtp;
+		qcom_fp {
+		status = "ok";
+		compatible = "qcom,fingerprint";
+		vdd-supply = <&pm8937_l10>;
+		vio-supply = <&pm8937_l6>;
+		reg = <0x0>;
+		interrupt-parent = <&tlmm>;
+		interrupts = <17 0x1>;
+		qcom,irq-gpio = <&tlmm 17 0>;
+		qcom,fpid-gpio = <&tlmm 16 0>;
+		qcom,reset-gpio = <&tlmm 19 0>;
+		pinctrl-names = "tlmm_gpio_fpid_active";
+		pinctrl-0 = <&gpio_fpid_active>;
+		spi-max-frequency = <8000000>;
+
+	};
 };
 
 &i2c_3{
