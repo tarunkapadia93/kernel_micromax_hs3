@@ -34,3 +34,7 @@
 &qcom_seecom {
 	reg = <0x84A00000 0x1900000>;
 };
+
+&soc {
+	/delete-node/ hbtp;
+};
