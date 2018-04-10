@@ -11,15 +11,19 @@
  */
 
 #include "dsi-panel-icn9706-720-1440p-video.dtsi"
+#include "dsi-panel-ili9881c-720-1440p-video.dtsi"
 
 &mdss_dsi0{
 
 	/delete-property/ qcom,platform-bklight-en-gpio;
 	/delete-property/ vdd-supply;
-	qcom,dsi-pref-prim-pan = <&dsi_icn9706_720_1440_vid>;
+	qcom,dsi-pref-prim-pan = <&dsi_ili9881c_720_1440p_video>;
 	qcom,platform-enable-gpio = <&tlmm 68 0>;
 };
 
 &dsi_icn9706_720_1440_vid{
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+};
+&dsi_ili9881c_720_1440p_video{
 	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
 };
