@@ -39,9 +39,9 @@
 		compatible = "qcom,fingerprint";
 		vdd-supply = <&pm8937_l10>;
 		vio-supply = <&pm8937_l6>;
-		reg = <0x0>;
+		reg = <0 0>;
 		interrupt-parent = <&tlmm>;
-		interrupts = <17 0x1>;
+		interrupts = <17 1>;
 		qcom,irq-gpio = <&tlmm 17 0>;
 		qcom,fpid-gpio = <&tlmm 16 0>;
 		qcom,reset-gpio = <&tlmm 19 0>;
