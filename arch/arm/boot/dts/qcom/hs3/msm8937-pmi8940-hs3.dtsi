@@ -14,6 +14,15 @@
 #include "msm8937-mdss-panels-hs3.dtsi"
 #include "msm8937-pinctrl-hs3.dtsi"
 
+/delete-node/ &mtp_batterydata;
+
+/{
+	mtp_batterydata: qcom,battery-data {
+		qcom,batt-id-range-pct = <100>;
+		#include "batterydata-tinno-3000mah.dtsi"
+	};
+};
+
 &other_ext_mem {
 	reg = <0x0 0x84A00000 0x0 0x1E00000>;
 	
