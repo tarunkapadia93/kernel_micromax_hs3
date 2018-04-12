@@ -33,7 +33,20 @@
 	reg = <0x84A00000 0x1900000>;
 };
 
+&i2c_5 {
+	status = "disabled";
+};
+
+&spi_3 {
+	status = "disabled";
+};
+
 &soc {
+	gpio_keys {
+		/delete-node/ camera_snapshot;
+		/delete-node/ camera_focus;
+	};
+
 	/delete-node/ hbtp;
 		qcom_fp {
 		status = "ok";
@@ -50,6 +63,12 @@
 		pinctrl-0 = <&gpio_fpid_active>;
 		spi-max-frequency = <8000000>;
 
+	};
+};
+
+&i2c_2 {
+	pericom-type-c@1d {
+		status = "disabled";
 	};
 };
 
