@@ -13,6 +13,7 @@
 
 #include "msm8937-mdss-panels-hs3.dtsi"
 #include "msm8937-pinctrl-hs3.dtsi"
+#include "msm8937-camera-hs3.dtsi"
 
 /delete-node/ &mtp_batterydata;
 

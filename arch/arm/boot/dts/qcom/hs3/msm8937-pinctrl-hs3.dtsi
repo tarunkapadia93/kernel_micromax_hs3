@@ -25,4 +25,79 @@
 			};
 		};
 	};
+	/delete-node/ cam_sensor_rear_vdig;
+	/delete-node/ cam_sensor_rear_vdig_sleep;
+
+	cam_sensor_rear_vdig: cam_sensor_rear_vdig {
+			mux {
+				pins = "gpio126";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio126";
+				bias-disable;
+				drive-strength = <2>;
+			};
+	};
+
+	cam_sensor_rear_vdig_sleep: cam_sensor_rear_vdig_sleep {
+			mux {
+				pins = "gpio126";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio126";
+				bias-disable;
+				drive-strength = <2>;
+			};
+	};
+
+	cam_sensor_rear_vana: cam_sensor_rear_vana {
+			mux {
+				pins = "gpio125";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio125";
+				bias-disable;
+				drive-strength = <2>;
+			};
+	};
+
+	cam_sensor_rear_vana_sleep: cam_sensor_rear_vana_sleep {
+			mux {
+				pins = "gpio125";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio125";
+				bias-disable;
+				drive-strength = <2>;
+			};
+	};
+
+	cam_sensor_front_vana: cam_sensor_front_vana {
+			mux {
+				pins = "gpio8";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio8";
+				bias-disable;
+				drive-strength = <2>;
+			};
+	};
+
+	cam_sensor_front_vana_sleep: cam_sensor_front_vana_sleep {
+			mux {
+				pins = "gpio8";
+				function = "gpio";
+			};
+			config {
+				pins = "gpio8";
+				bias-disable;
+				drive-strength = <2>;
+			};
+	};
+
 };
